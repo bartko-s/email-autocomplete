@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Email Autocomplete</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+    <script src="email-autocomplete.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet" />
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function() {
+            $('#email').autocomplete({
+                minLength: 3,
+                source: function (request, response) {
+                    response(EmailAutocomplete.search(request.term));
+                }
+            });
+        });
+    </script>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        * {
+            outline: 0;
+        }
+        body, html {
+            font-size: 62.5%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: 1.4rem;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100%;
+            background-color: wheat;
+        }
+        input {
+            padding: 0.5rem 0.7rem;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <label>Email: </label>
+        <input type="text" id="email" value="@" />
+    </div>
+</body>
+</html>
