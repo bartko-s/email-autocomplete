@@ -11,7 +11,7 @@
             src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
             integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
             crossorigin="anonymous"></script>
-    <script src="email-autocomplete.js"></script>
+    <script src="dist/email-autocomplete.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet" />
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
     <script>
@@ -51,16 +51,20 @@
             min-height: 100%;
             background-color: wheat;
         }
+        h1 {
+            font-size: 1.8rem;
+        }
         input {
             padding: 0.5rem 0.7rem;
-            margin: 0 0.5rem;
         }
     </style>
 </head>
 <body>
     <div class="content">
-        <label>Email: </label>
-        <input type="text" id="email" value="@" />
+        <div>
+            <h1>Email Autocomplete</h1>
+            <input type="text" id="email" value="@" />
+        </div>
     </div>
 </body>
 </html>
