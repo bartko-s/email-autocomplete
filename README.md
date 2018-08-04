@@ -26,9 +26,9 @@ let suggestedAddreses = EmailAutocomplete.search("test@gm");
 ```
 
 - use UNPKG CDN
-```
- todo example
-```
+
+ see [UNPKG](https://unpkg.com)
+
 
 ## Example usage with jQueryUI autocomplete
 ```

@@ -1,12 +1,13 @@
 {
   "name": "email-autocomplete",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Email autocomplete helper",
   "main": "lib/email-autocomplete.js",
   "repository": "https://github.com/bartko-s/email-autocomplete",
   "author": {
     "name": "Štefan Bartko"
   },
+  "unpkg": "dist/email-autocomplete.min.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
