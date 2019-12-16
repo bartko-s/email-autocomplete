@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+
+  node:
+    image: node:12
+    command: yarn --cwd "/home/node/" dev
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/home/node/

@@ -33,9 +33,11 @@ function buildConfig(isDevelopment) {
             new UglifyJsPlugin(),
         ],
         devServer: {
-            contentBase: './',
+            contentBase: path.join(__dirname, './'),
             overlay: true,
-            hot: true
+            hot: true,
+            host: '0.0.0.0',
+            port: 8080
         },
     };
 }
