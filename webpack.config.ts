@@ -1,16 +1,13 @@
-'use strict';
+import * as path from 'path';
+import * as webpack from 'webpack'
+import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 
-const path = require('path');
-const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-function buildConfig(isDevelopment) {
+function buildConfig(isDevelopment: boolean) {
     return {
         mode: 'none',
         cache: isDevelopment,
         devtool: isDevelopment ? 'eval-source-map' : false,
-        entry: './lib/email-autocomplete.js',
+        entry: './lib/email-autocomplete.ts',
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'email-autocomplete.min.js',
@@ -21,16 +18,17 @@ function buildConfig(isDevelopment) {
         module: {
             rules: [
                 {
-                    test: /\.(js)$/,
-                    use: 'babel-loader'
+                    test: /\.(t|j)s?$/,
+                    exclude: /node_modules/,
+                    loader: 'ts-loader'
                 }
             ]
         },
-        plugins: isDevelopment ? [
-            new webpack.HotModuleReplacementPlugin(),
-        ] : [
-            new CleanWebpackPlugin(['dist']),
-            new UglifyJsPlugin(),
+        resolve: {
+            extensions: [ '.ts', '.js' ],
+        },
+        plugins: [
+            new CleanWebpackPlugin(),
         ],
         devServer: {
             contentBase: path.join(__dirname, './'),
@@ -42,4 +40,8 @@ function buildConfig(isDevelopment) {
     };
 }
 
-module.exports = buildConfig(process.env.NODE_ENV === 'development');
+export default function(env: undefined, argv: webpack.Configuration) {
+    const config = buildConfig(argv.mode === 'development');
+    // console.log(config);
+    return config
+}

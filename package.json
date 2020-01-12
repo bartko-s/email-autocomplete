@@ -1,27 +1,29 @@
 {
   "name": "email-autocomplete",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Email autocomplete helper",
-  "main": "lib/email-autocomplete.js",
+  "main": "dist/email-autocomplete.min.js",
+  "types": "dist/email-autocomplete.d.ts",
   "repository": "https://github.com/bartko-s/email-autocomplete",
   "author": {
     "name": "Štefan Bartko"
   },
   "unpkg": "dist/email-autocomplete.min.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "prepublishOnly": "npm run build"
+    "dev": "yarn install && webpack-dev-server --mode=development",
+    "build": "yarn install && webpack --progress --hide-modules --mode=production",
+    "prepublishOnly": "yarn run build"
   },
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "clean-webpack-plugin": "^0.1.19",
-    "cross-env": "^5.2.0",
-    "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.3",
-    "webpack-dev-server": "^3.1.5"
+    "@types/node": "^13.1.6",
+    "@types/webpack": "^4.41.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   }
 }

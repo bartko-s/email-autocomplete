@@ -2,3 +2,5 @@
 /node_modules/
 /yarn.lock
 /deploy.sh
+/yarn-error.log
+/dist/
