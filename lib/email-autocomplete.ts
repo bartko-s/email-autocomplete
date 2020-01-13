@@ -11,7 +11,7 @@ const DOMAINS = [
         'centrum.cz', 'email.cz', 'seznam.cz',
     ];
 
-export function search(term: string) {
+export function search(term: string): Array<string> {
     let parts = term.split('@', 2);
 
     if(parts.length < 2 || parts[0].length === 0 || parts[1].length === 0) {
